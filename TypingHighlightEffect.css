@@ -1,12 +1,13 @@
 :root {
-  --verde: #01fe87; /* Definir el verde */
+  --color: #d0ff00; /* Definir el color */
 }
 
 .mainTitle {
-  font-size: 5em;
+  font-size: 2em;
   font-weight: 600;
   position: relative;
 }
+
 .typing {
   position: relative;
   color: rgba(0, 0, 0, 0.1);
@@ -20,11 +21,13 @@
   left: 0;
   white-space: nowrap;
   overflow: hidden;
-  color: var(--verde); /* Usando la variable verde */
+  color: var(--color); /* Usando la variable color */
   width: 0;
-  border-right: 4px solid var(--verde);
-  filter: drop-shadow(0 0 5px var(--verde)) drop-shadow(0 0 25px var(--verde));
-  animation: typingEffect 3s steps(25, end) forwards, blink 0.6s step-end infinite;
+  border-right: 4px solid var(--color);
+  filter: drop-shadow(0 0 5px var(--color)) drop-shadow(0 0 25px var(--color));
+  animation:
+  typingEffect 3s steps(25, end) forwards,
+  blink 0.6s step-end forwards 8;
 }
 
 @keyframes typingEffect {
@@ -34,10 +37,18 @@
 }
 
 @keyframes blink {
-  0%, 100% {
-    border-right-color: var(--verde);
+  0%, 66% {
+    border-right-color: var(--color);
   }
-  50% {
+  33%, 100% {
     border-right-color: transparent;
   }
+}
+
+/* Media query for larger screens */
+@media screen and (min-width: 768px) {
+
+  .mainTitle {
+    font-size: 5em;
+  }  
 }
