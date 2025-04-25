@@ -1,0 +1,43 @@
+:root {
+  --verde: #01fe87; /* Definir el verde */
+}
+
+.mainTitle {
+  font-size: 5em;
+  font-weight: 600;
+  position: relative;
+}
+.typing {
+  position: relative;
+  color: rgba(0, 0, 0, 0.1);
+  display: inline-block;
+}
+
+.typing::before {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  color: var(--verde); /* Usando la variable verde */
+  width: 0;
+  border-right: 4px solid var(--verde);
+  filter: drop-shadow(0 0 5px var(--verde)) drop-shadow(0 0 25px var(--verde));
+  animation: typingEffect 3s steps(25, end) forwards, blink 0.6s step-end infinite;
+}
+
+@keyframes typingEffect {
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink {
+  0%, 100% {
+    border-right-color: var(--verde);
+  }
+  50% {
+    border-right-color: transparent;
+  }
+}
