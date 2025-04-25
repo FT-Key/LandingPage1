@@ -51,26 +51,26 @@ body {
   grid-template-columns: repeat(24, 1fr);
   grid-template-rows: repeat(12, 1fr);
   pointer-events: none;
-  z-index: 200;
+  ;
 
   /* 🟨 Cuadros lado izquierdo */
   .areaL1 {
-    grid-area: 1 / 1 / 7 / 5;
+    grid-area: 1 / 1 / 8 / 5;
     background-color: #DC2626;
   }
 
   .areaL2 {
-    grid-area: 7 / 5 / 11 / 7;
+    grid-area: 8 / 5 / 12 / 7;
     background-color: #333333;
   }
 
   .areaL3 {
-    grid-area: 6 / 7 / 7 / 8;
+    grid-area: 7 / 7 / 8 / 8;
     background-color: black;
   }
 
   .areaL4 {
-    grid-area: 11 / 7 / 12 / 12;
+    grid-area: 12 / 7 / 13 / 12;
     background-color: #FECACA;
   }
 
@@ -91,14 +91,34 @@ body {
   }
 }
 
-
-
 .lightBackgound {
   color: black;
 
   * {
     color: black;
   }
+
+  .card-title {
+    color: #DC2626;
+  }
+}
+
+.redBackgound {
+  color: white;
+
+  * {
+    color: white;
+  }
+
+  .card-title {
+    color: white;
+  }
+}
+
+.cardWrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1.25;
 }
 
 .cardCustom {
@@ -107,20 +127,34 @@ body {
   flex-direction: column;
   justify-content: flex-end;
   width: 100%;
-  aspect-ratio: 1 / 1.25;
+  height: 100%;
   border: 1px solid rgba(0, 0, 0, 0.175);
   border-radius: 0.5rem;
-  background-color: #ffffff;
+  overflow: hidden; /* Ahora sí, sin afectar la imagen */
   padding-top: 50%;
-  /* espacio para que sobresalga la imagen */
+  background-color: white; /* o la que uses */
+  z-index: 1;
 }
 
 .cardImgCustom {
   position: absolute;
   top: -15%;
-  width: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 75%;
   height: auto;
-  z-index: 3;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.cardImgCustom.custom2 {
+  width: 75%;
+  transform: translateX(-50%) rotate(10deg);
+}
+
+.cardImgCustom.custom1 {
+  width: 75%;
+  transform: translateX(-50%) rotate(-10deg);
 }
 
 .card-body {
@@ -128,39 +162,20 @@ body {
   height: 50%;
   display: flex;
   flex-direction: column;
-  justify-content: end;
+  justify-content: center;
+  align-items: start;
   z-index: 1;
-  background-color: #ffffff;
 }
 
 .card-title {
-  color: #DC2626;
   margin: 0;
   font-size: 1.2rem;
   font-weight: bold;
-  z-index: 3;
 }
 
 .card-text {
-  flex-grow: 1;
   font-size: 0.95rem;
   margin: 0.5rem 0;
-  z-index: 3;
-}
-
-.card-btn {
-  display: inline-block;
-  text-align: center;
-  padding: 0.5rem 1rem;
-  background-color: #0d6efd;
-  color: white;
-  border-radius: 0.375rem;
-  text-decoration: none;
-  transition: background-color 0.2s ease;
-}
-
-.card-btn:hover {
-  background-color: #084cdf;
 }
 
 .cardGridDecorativa {
@@ -169,22 +184,12 @@ body {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: repeat(12, 1fr);
-  z-index: 2;
-  /* detrás del contenido */
+  background-color: #ffffff;
   pointer-events: none;
+}
 
-  .cardArea1 {
-    grid-area: 1 / 1 / 6 / 6;
-    background-color: #FECACA;
-  }
-
-  .cardArea2 {
-    grid-area: 7 / 7 / 8 / 8;
-    background-color: #DC2626;
-  }
-
-  .cardArea3 {
-    grid-area: 4 / 10 / 5 / 11;
-    background-color: #333333;
-  }
+.cardGridDecorativa div {
+  border-radius: 0.1rem;
+  opacity: 0.9;
+  transition: opacity 0.3s ease;
 }
